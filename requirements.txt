@@ -1,0 +1,9 @@
+geopandas
+pandas
+numpy
+matplotlib
+contextily
+matplotlib-scalebar
+requests
+shapely
+jupyter

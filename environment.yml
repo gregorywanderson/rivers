@@ -1,0 +1,19 @@
+name: rivers
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.11
+  - geopandas
+  - pandas
+  - numpy
+  - matplotlib
+  - contextily
+  - matplotlib-scalebar
+  - requests
+  - shapely
+  - pyproj
+  - fiona
+  - pip
+  - pip:
+    - dataretrieval

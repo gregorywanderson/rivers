@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "rivers"
+version = "0.1.0"
+description = "Python clients and tools for USGS and NOAA river and watershed data."
+authors = [
+    { name = "Gregory Anderson", email = "greg.w.anderson20@gmail.com" }
+]
+license = { text = "GPL-3.0-or-later" }
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "geopandas",
+    "pandas",
+    "numpy",
+    "matplotlib",
+    "matplotlib-scalebar",
+    "contextily",
+    "requests",
+    "shapely",
+    "dataretrieval",
+]
+
+[project.urls]
+Homepage = "https://github.com/gregwanderson/rivers"
+Issues = "https://github.com/gregwanderson/rivers/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["rivers*"]
+
+[tool.pyright]
+extraPaths = ["."]
