@@ -56,6 +56,7 @@ conda activate rivers
 Or using pip:
 
 ```bash
+pip install -r requirements.txt
 pip install -e .
 ```
 
