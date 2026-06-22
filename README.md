@@ -1,8 +1,9 @@
-# rivers
+# Rivers
 
 A collection of Python tools and notebooks for visualizing and analyzing river
 watersheds, environmental conditions, and streamflow data using USGS, NOAA, and
-USBR public datasets.
+USBR public datasets. Currently this is divided into two sections. One for Chicago area waterways,
+and another for the Colorado River in the Grand Canyon.
 
 ## Overview
 
@@ -112,7 +113,7 @@ The notebook produces a two-panel figure:
 The notebook can be run locally or launched in Google Colab using the badge above.
 
 
-## Example: Fetch watersheds for the North Branch Chicago River
+### Example: Fetch watersheds for the North Branch Chicago River
 
 ```python
 from national_map_client import WBDClient
@@ -124,7 +125,7 @@ print(f"Found {len(watersheds)} HUC-12 watersheds")
 watersheds.plot()
 ```
 
-## Example: Fetch NHDPlus flowlines for a study area
+### Example: Fetch NHDPlus flowlines for a study area
 
 ```python
 from national_map_client import NHDPlusFlowlineClient
