@@ -1,10 +1,8 @@
 # rivers
 
 A collection of Python tools and notebooks for visualizing and analyzing river
-watersheds, environmental conditions, and streamflow data using USGS and NOAA
-public datasets.
-
-![North Branch Chicago River Watersheds](chicagoland/figures/north_branch_watersheds.png)
+watersheds, environmental conditions, and streamflow data using USGS, NOAA, and
+USBR public datasets.
 
 ## Overview
 
@@ -34,7 +32,9 @@ rivers/
 │   └── figures/
 ├── grand_canyon/
 │   ├── grand_canyon_conditions.ipynb
-│   └── figures/
+│   ├── crsp.ipynb              # CRSP reservoir storage from Bureau of Reclamation RISE
+│   ├── images/                 # input image (CRSP map)
+│   └── figures/                # generated plots
 ├── environment.yml
 ├── pyproject.toml
 ├── LICENSE
@@ -92,6 +92,26 @@ The notebook produces two main figures:
 The notebook can be run locally or launched in Google Colab using the badge
 above.
 
+### Colorado River Storage Project (`grand_canyon/crsp.ipynb`)
+
+[![Open CRSP Storage in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/gregorywanderson/rivers/blob/main/grand_canyon/crsp.ipynb)
+
+This notebook downloads and plots multi-year storage for the seven major Colorado
+River Storage Project (CRSP) reservoirs in the Upper Basin: Lake Powell, Flaming
+Gorge, Navajo, Blue Mesa, Fontenelle, Morrow Point, and Crystal. Data are pulled
+at runtime from the Bureau of Reclamation's Reclamation Information Sharing
+Environment (RISE) API.
+
+The notebook produces a two-panel figure:
+
+1. Absolute storage (million acre-feet) for all seven reservoirs, showing how Lake
+   Powell dwarfs the others combined.
+2. Percent of live capacity for the four primary storage reservoirs, where the
+   multi-year drought drawdown and the annual spring snowmelt cycle are visible.
+
+The notebook can be run locally or launched in Google Colab using the badge above.
+
+
 ## Example: Fetch watersheds for the North Branch Chicago River
 
 ```python
@@ -118,6 +138,7 @@ flowlines = nhd_client.query(
 print(f"Found {len(flowlines)} flowlines")
 ```
 
+
 ## Data Sources
 
 All data are retrieved at runtime from public federal services.
@@ -130,6 +151,7 @@ All data are retrieved at runtime from public federal services.
 | River discharge and water temperature | USGS Water Data                                                                               | `dataretrieval.waterdata` |
 | Lake Powell elevation                 | USGS Water Data; Bureau of Reclamation is the definitive source for reservoir operations data | `dataretrieval.waterdata` |
 | Climate and weather data              | NOAA NCEI                                                                                     | `ncei_io.py`              |
+| CRSP reservoir storage                | Bureau of Reclamation                                                                         | RISE API (`data.usbr.gov`) |
 
 USGS and NOAA data are in the public domain.
 
